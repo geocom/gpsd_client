@@ -84,7 +84,7 @@ module GpsdClient
                 # mode 1 means no valid data
                 # return "Lat: #{line['lat'].to_s}, Lon: #{line['lon'].to_s}" unless line['mode'] == 1
                 flush_socket
-                return line.transform_keys(&:to_s) unless line['mode'] == 1
+                return line unless line['mode'] == 1
             end
             #puts "debug >> TPV not found polling on GPSd"
         end
